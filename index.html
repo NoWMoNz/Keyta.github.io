@@ -1,0 +1,1673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Keyta — From Kato</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#f5efe3;
+  --paper2:#ebe0cd;
+  --ink:#342c27;
+  --muted:#81756b;
+  --rose:#bd7777;
+  --sage:#788b70;
+  --wine:#713f45;
+  --wood:#75533e;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"DM Sans",sans-serif;
+  overflow-x:hidden;
+}
+
+button{
+  font:inherit;
+}
+
+/* ================================
+   PAPER
+================================ */
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.13;
+  z-index:999;
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.25'/%3E%3C/svg%3E");
+}
+
+/* ================================
+   INTRO
+================================ */
+
+#intro{
+  position:fixed;
+  inset:0;
+  z-index:100;
+  background:#f4eddf;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:
+    opacity 1.2s ease,
+    transform 1.2s ease;
+}
+
+#intro.hide{
+  opacity:0;
+  pointer-events:none;
+  transform:scale(1.08);
+}
+
+.intro-content{
+  text-align:center;
+}
+
+.intro-small{
+  font-size:11px;
+  letter-spacing:5px;
+  text-transform:uppercase;
+  color:#8c8177;
+  margin-bottom:30px;
+}
+
+.intro-title{
+  font-family:"Cormorant Garamond",serif;
+  font-size:clamp(45px,8vw,90px);
+  font-weight:500;
+  margin-bottom:10px;
+}
+
+.intro-sub{
+  font-family:"Patrick Hand",cursive;
+  color:#8b7770;
+  font-size:20px;
+  margin-bottom:45px;
+}
+
+.enter{
+  border:0;
+  background:transparent;
+  border-bottom:1px solid #786b61;
+  padding:10px 3px;
+  cursor:pointer;
+  color:var(--ink);
+  letter-spacing:2px;
+  font-size:11px;
+  transition:.3s;
+}
+
+.enter:hover{
+  letter-spacing:5px;
+}
+
+/* ================================
+   MAIN
+================================ */
+
+#world{
+  min-height:100vh;
+  opacity:0;
+  transition:opacity 1.5s ease;
+}
+
+#world.visible{
+  opacity:1;
+}
+
+/* ================================
+   HERO
+================================ */
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero-copy{
+  text-align:center;
+  z-index:3;
+}
+
+.eyebrow{
+  font-size:10px;
+  letter-spacing:5px;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:22px;
+}
+
+.hero h1{
+  font-family:"Cormorant Garamond",serif;
+  font-weight:500;
+  font-size:clamp(60px,12vw,150px);
+  line-height:.8;
+}
+
+.hero h1 span{
+  display:block;
+  font-size:.42em;
+  margin-top:25px;
+  font-family:"DM Sans";
+  letter-spacing:9px;
+  text-transform:uppercase;
+  color:var(--wine);
+}
+
+.hero-note{
+  margin-top:35px;
+  font-family:"Patrick Hand",cursive;
+  font-size:21px;
+  color:#887a70;
+}
+
+.scroll{
+  position:absolute;
+  bottom:30px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:9px;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  color:#95887e;
+}
+
+/* floating botanical elements */
+
+.flower{
+  position:absolute;
+  font-size:70px;
+  opacity:.13;
+  animation:float 7s ease-in-out infinite;
+}
+
+.flower.one{left:8%;top:15%;}
+.flower.two{right:8%;bottom:20%;animation-delay:2s;}
+.flower.three{right:20%;top:10%;font-size:40px;animation-delay:4s;}
+
+@keyframes float{
+  0%,100%{transform:translateY(0) rotate(-4deg);}
+  50%{transform:translateY(-20px) rotate(5deg);}
+}
+
+/* ================================
+   DESK
+================================ */
+
+.desk-section{
+  min-height:100vh;
+  padding:100px 6vw;
+  position:relative;
+  background:
+    linear-gradient(rgba(117,83,62,.88),rgba(117,83,62,.88)),
+    repeating-linear-gradient(
+      90deg,
+      #6f4d39 0px,
+      #805b44 3px,
+      #6e4b37 7px
+    );
+  overflow:hidden;
+}
+
+.desk{
+  width:min(1150px,100%);
+  min-height:700px;
+  margin:auto;
+  position:relative;
+  padding:70px;
+  background:#e9ddc9;
+  box-shadow:
+    0 40px 100px rgba(0,0,0,.25),
+    inset 0 0 80px rgba(90,65,45,.08);
+  border-radius:3px;
+}
+
+.desk-title{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.desk-title small{
+  font-size:10px;
+  letter-spacing:4px;
+  color:#8e7e70;
+}
+
+.desk-title h2{
+  font-family:"Cormorant Garamond",serif;
+  font-size:60px;
+  font-weight:500;
+}
+
+.desk-title p{
+  font-family:"Patrick Hand";
+  color:#8b776c;
+  font-size:20px;
+}
+
+.objects{
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+  flex-wrap:wrap;
+  gap:35px;
+}
+
+/* ================================
+   OBJECTS
+================================ */
+
+.object{
+  position:relative;
+  cursor:pointer;
+  transition:
+    transform .5s cubic-bezier(.2,.8,.2,1),
+    filter .4s;
+}
+
+.object:hover{
+  transform:translateY(-14px) rotate(-1deg);
+}
+
+.object-label{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  bottom:-35px;
+  white-space:nowrap;
+  font-size:9px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:#76695e;
+}
+
+/* cassette */
+
+.cassette{
+  width:280px;
+  height:175px;
+  background:#4d4640;
+  border-radius:12px;
+  padding:25px;
+  box-shadow:0 20px 35px rgba(0,0,0,.25);
+  transform:rotate(-3deg);
+}
+
+.cassette-inner{
+  height:100%;
+  border-radius:6px;
+  background:#b88982;
+  padding:20px;
+  position:relative;
+}
+
+.cassette-label{
+  font-family:"Cormorant Garamond";
+  font-size:27px;
+  text-align:center;
+}
+
+.reels{
+  display:flex;
+  justify-content:space-between;
+  margin-top:18px;
+}
+
+.reel{
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  background:#e8ddd0;
+  border:8px solid #6d635b;
+  position:relative;
+}
+
+.reel::after{
+  content:"";
+  width:7px;
+  height:7px;
+  background:#6d635b;
+  border-radius:50%;
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+}
+
+.cassette.playing .reel{
+  animation:spin .7s linear infinite;
+}
+
+@keyframes spin{
+  to{transform:rotate(360deg);}
+}
+
+/* letter */
+
+.letter-object{
+  width:220px;
+  height:260px;
+  background:#faf4e8;
+  padding:30px;
+  box-shadow:0 20px 30px rgba(0,0,0,.15);
+  transform:rotate(4deg);
+  position:relative;
+}
+
+.letter-object::before{
+  content:"";
+  position:absolute;
+  inset:12px;
+  border:1px solid #d8cbb9;
+}
+
+.letter-object h3{
+  font-family:"Cormorant Garamond";
+  font-size:34px;
+  font-weight:500;
+}
+
+.letter-object p{
+  font-family:"Patrick Hand";
+  color:#8a786d;
+  margin-top:20px;
+  font-size:18px;
+}
+
+/* photo */
+
+.photo{
+  width:210px;
+  background:#f7f0e3;
+  padding:10px 10px 30px;
+  box-shadow:0 18px 25px rgba(0,0,0,.17);
+  transform:rotate(-6deg);
+}
+
+.photo-image{
+  height:190px;
+  background:
+    radial-gradient(circle at 30% 30%,#d59e99,transparent 25%),
+    linear-gradient(135deg,#b7c3ad,#d6b2a6);
+  position:relative;
+  overflow:hidden;
+}
+
+.photo-image::after{
+  content:"K + K";
+  font-family:"Cormorant Garamond";
+  position:absolute;
+  bottom:10px;
+  right:12px;
+  font-size:25px;
+  color:white;
+  opacity:.7;
+}
+
+.photo-caption{
+  font-family:"Patrick Hand";
+  font-size:17px;
+  margin-top:8px;
+  text-align:center;
+  color:#74665d;
+}
+
+/* flowers */
+
+.bouquet{
+  width:170px;
+  height:250px;
+  position:relative;
+  transform:rotate(3deg);
+}
+
+.stem{
+  position:absolute;
+  width:3px;
+  height:160px;
+  background:#66785e;
+  bottom:20px;
+  left:50%;
+  transform-origin:bottom;
+}
+
+.bloom{
+  position:absolute;
+  font-size:48px;
+}
+
+.bloom.a{left:30px;top:25px;}
+.bloom.b{left:75px;top:0;}
+.bloom.c{left:100px;top:55px;}
+.bloom.d{left:15px;top:90px;}
+
+.vase{
+  position:absolute;
+  bottom:0;
+  left:45px;
+  width:80px;
+  height:80px;
+  border-radius:8px 8px 30px 30px;
+  background:#b8aaa0;
+}
+
+/* ================================
+   MODALS
+================================ */
+
+.modal{
+  position:fixed;
+  inset:0;
+  z-index:200;
+  background:rgba(39,31,27,.55);
+  backdrop-filter:blur(12px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  pointer-events:none;
+  transition:.5s;
+  padding:20px;
+}
+
+.modal.open{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.modal-content{
+  width:min(700px,100%);
+  max-height:90vh;
+  overflow:auto;
+  background:#f7f0e4;
+  padding:55px;
+  position:relative;
+  box-shadow:0 40px 100px rgba(0,0,0,.3);
+  transform:translateY(30px) scale(.96);
+  transition:.5s;
+}
+
+.modal.open .modal-content{
+  transform:none;
+}
+
+.close{
+  position:absolute;
+  right:20px;
+  top:18px;
+  border:0;
+  background:none;
+  cursor:pointer;
+  font-size:22px;
+  color:#7d7066;
+}
+
+/* ================================
+   LETTER MODAL
+================================ */
+
+.handwritten{
+  font-family:"Patrick Hand",cursive;
+  font-size:22px;
+  line-height:1.7;
+  color:#51453d;
+}
+
+.letter-title{
+  font-family:"Cormorant Garamond";
+  font-size:50px;
+  font-weight:500;
+  margin-bottom:30px;
+}
+
+.signature{
+  margin-top:40px;
+  text-align:right;
+  font-family:"Patrick Hand";
+  font-size:25px;
+}
+
+/* ================================
+   MUSIC
+================================ */
+
+.music-player{
+  text-align:center;
+}
+
+.music-cover{
+  width:200px;
+  height:200px;
+  margin:0 auto 30px;
+  background:
+    linear-gradient(135deg,#b87878,#d3a6a0);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 20px 40px rgba(0,0,0,.15);
+}
+
+.music-cover span{
+  font-family:"Cormorant Garamond";
+  font-size:32px;
+  color:white;
+}
+
+.now-playing{
+  letter-spacing:3px;
+  text-transform:uppercase;
+  font-size:9px;
+  color:#927d72;
+  margin-bottom:8px;
+}
+
+.song-title{
+  font-family:"Cormorant Garamond";
+  font-size:38px;
+}
+
+.progress{
+  width:100%;
+  height:2px;
+  background:#d5c8b8;
+  margin:30px 0;
+  position:relative;
+}
+
+.progress-bar{
+  height:100%;
+  width:0%;
+  background:#6e5750;
+}
+
+.music-buttons{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+}
+
+.music-buttons button{
+  border:1px solid #b7a99a;
+  background:none;
+  border-radius:50%;
+  width:50px;
+  height:50px;
+  cursor:pointer;
+}
+
+/* ================================
+   MEMORIES
+================================ */
+
+.memory-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:30px;
+}
+
+.memory{
+  background:#fff8ec;
+  padding:10px 10px 25px;
+  box-shadow:0 15px 30px rgba(0,0,0,.12);
+  transition:.4s;
+}
+
+.memory:hover{
+  transform:translateY(-8px) rotate(1deg);
+}
+
+.memory-img{
+  height:230px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:"Cormorant Garamond";
+  font-size:28px;
+  color:white;
+}
+
+.m1{background:linear-gradient(135deg,#c99591,#879d82);}
+.m2{background:linear-gradient(135deg,#9a7d7d,#c9ae88);}
+.m3{background:linear-gradient(135deg,#879486,#c59d9b);}
+.m4{background:linear-gradient(135deg,#9c8470,#d0b6a2);}
+
+.memory p{
+  font-family:"Patrick Hand";
+  text-align:center;
+  font-size:18px;
+  margin-top:10px;
+}
+
+/* ================================
+   SECRET
+================================ */
+
+.secret{
+  text-align:center;
+}
+
+.secret-small{
+  font-size:10px;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  color:#95847a;
+}
+
+.secret h2{
+  font-family:"Cormorant Garamond";
+  font-size:65px;
+  font-weight:500;
+  margin:25px 0;
+}
+
+.secret p{
+  font-family:"Patrick Hand";
+  font-size:23px;
+  line-height:1.6;
+}
+
+.secret-btn{
+  margin-top:35px;
+  border:1px solid #88776c;
+  padding:13px 25px;
+  background:none;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.secret-btn:hover{
+  background:#403630;
+  color:#fff;
+}
+
+/* ================================
+   FINAL
+================================ */
+
+.final{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:40px;
+  position:relative;
+}
+
+.final::before,
+.final::after{
+  content:"✿";
+  position:absolute;
+  font-size:100px;
+  opacity:.08;
+}
+
+.final::before{
+  left:10%;
+  top:15%;
+}
+
+.final::after{
+  right:10%;
+  bottom:15%;
+}
+
+.final h2{
+  font-family:"Cormorant Garamond";
+  font-size:clamp(55px,9vw,100px);
+  font-weight:500;
+}
+
+.final p{
+  max-width:500px;
+  margin:30px auto;
+  font-family:"Patrick Hand";
+  font-size:24px;
+  line-height:1.6;
+  color:#786b61;
+}
+
+.final-sign{
+  font-family:"Patrick Hand";
+  font-size:30px;
+  margin-top:50px;
+}
+
+.kt{
+  margin-top:15px;
+  letter-spacing:8px;
+  font-size:11px;
+  color:#92746f;
+}
+
+/* ================================
+   FLOATING MUSIC
+================================ */
+
+.floating-music{
+  position:fixed;
+  right:25px;
+  bottom:25px;
+  z-index:80;
+  background:#f5ecdf;
+  width:240px;
+  padding:15px;
+  box-shadow:0 15px 35px rgba(0,0,0,.18);
+  transform:translateY(150px);
+  transition:.6s cubic-bezier(.2,.8,.2,1);
+}
+
+.floating-music.show{
+  transform:none;
+}
+
+.fm-row{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.fm-cover{
+  width:45px;
+  height:45px;
+  background:#bd8982;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+}
+
+.fm-info{
+  flex:1;
+}
+
+.fm-info small{
+  font-size:8px;
+  letter-spacing:2px;
+  color:#99867a;
+}
+
+.fm-info div{
+  font-family:"Cormorant Garamond";
+  font-size:19px;
+}
+
+.fm-play{
+  border:0;
+  background:none;
+  cursor:pointer;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media(max-width:700px){
+
+  .desk-section{
+    padding:40px 15px;
+  }
+
+  .desk{
+    padding:40px 20px;
+    min-height:800px;
+  }
+
+  .desk-title h2{
+    font-size:43px;
+  }
+
+  .objects{
+    gap:60px 20px;
+  }
+
+  .cassette{
+    width:240px;
+    height:150px;
+  }
+
+  .letter-object{
+    width:190px;
+    height:230px;
+  }
+
+  .photo{
+    width:180px;
+  }
+
+  .photo-image{
+    height:160px;
+  }
+
+  .memory-grid{
+    grid-template-columns:1fr;
+  }
+
+  .modal-content{
+    padding:35px 25px;
+  }
+
+  .floating-music{
+    right:12px;
+    bottom:12px;
+    width:220px;
+  }
+
+  .hero h1{
+    font-size:65px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================================
+     INTRO
+================================ -->
+
+<section id="intro">
+
+  <div class="intro-content">
+
+    <div class="intro-small">
+      a little something
+    </div>
+
+    <div class="intro-title">
+      Hey, Keyta.
+    </div>
+
+    <div class="intro-sub">
+      I made something for you.
+    </div>
+
+    <button class="enter" onclick="enterWorld()">
+      ENTER OUR LITTLE UNIVERSE →
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- ================================
+     WORLD
+================================ -->
+
+<main id="world">
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="flower one">✿</div>
+    <div class="flower two">❀</div>
+    <div class="flower three">✿</div>
+
+    <div class="hero-copy">
+
+      <div class="eyebrow">
+        for keyta · from kato
+      </div>
+
+      <h1>
+        Our
+        <span>little universe</span>
+      </h1>
+
+      <div class="hero-note">
+        take your time.
+      </div>
+
+    </div>
+
+    <div class="scroll">
+      scroll slowly ↓
+    </div>
+
+  </section>
+
+
+  <!-- DESK -->
+
+  <section class="desk-section">
+
+    <div class="desk">
+
+      <div class="desk-title">
+
+        <small>KEYTA × KATO</small>
+
+        <h2>A little something for you</h2>
+
+        <p>
+          I left a few things here.
+        </p>
+
+      </div>
+
+
+      <div class="objects">
+
+        <!-- CASSETTE -->
+
+        <div
+          class="object"
+          onclick="openMusic()"
+        >
+
+          <div class="cassette" id="cassette">
+
+            <div class="cassette-inner">
+
+              <div class="cassette-label">
+                KT MIXTAPE
+              </div>
+
+              <div class="reels">
+
+                <div class="reel"></div>
+                <div class="reel"></div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="object-label">
+            music
+          </div>
+
+        </div>
+
+
+        <!-- LETTER -->
+
+        <div
+          class="object"
+          onclick="openLetter()"
+        >
+
+          <div class="letter-object">
+
+            <h3>
+              Dear<br>
+              Keyta,
+            </h3>
+
+            <p>
+              I wrote something
+              for you...
+            </p>
+
+          </div>
+
+          <div class="object-label">
+            letter
+          </div>
+
+        </div>
+
+
+        <!-- PHOTO -->
+
+        <div
+          class="object"
+          onclick="openMemories()"
+        >
+
+          <div class="photo">
+
+            <div class="photo-image"></div>
+
+            <div class="photo-caption">
+              one of my favorite memories
+            </div>
+
+          </div>
+
+          <div class="object-label">
+            memories
+          </div>
+
+        </div>
+
+
+        <!-- FLOWERS -->
+
+        <div
+          class="object"
+          onclick="openFlowers()"
+        >
+
+          <div class="bouquet">
+
+            <div class="stem" style="transform:rotate(-15deg)"></div>
+            <div class="stem" style="transform:rotate(8deg)"></div>
+            <div class="stem" style="transform:rotate(22deg)"></div>
+
+            <div class="bloom a">🌷</div>
+            <div class="bloom b">🌸</div>
+            <div class="bloom c">🌷</div>
+            <div class="bloom d">🌼</div>
+
+            <div class="vase"></div>
+
+          </div>
+
+          <div class="object-label">
+            flowers
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FINAL -->
+
+  <section class="final">
+
+    <div>
+
+      <div class="eyebrow">
+        chapter one
+      </div>
+
+      <h2>
+        To be continued...
+      </h2>
+
+      <p>
+        More songs.<br>
+        More memories.<br>
+        More ordinary days<br>
+        that somehow become special.
+      </p>
+
+      <div class="final-sign">
+        Happy Anniversary, Keyta.
+        <br><br>
+        — Kato
+      </div>
+
+      <div class="kt">
+        K E Y T A × K A T O
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<!-- ================================
+     MUSIC MODAL
+================================ -->
+
+<div class="modal" id="musicModal">
+
+  <div class="modal-content music-player">
+
+    <button class="close" onclick="closeModal('musicModal')">
+      ×
+    </button>
+
+    <div class="music-cover">
+      <span>KT</span>
+    </div>
+
+    <div class="now-playing">
+      now playing
+    </div>
+
+    <div class="song-title">
+      Our Song
+    </div>
+
+    <div class="progress">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div class="music-buttons">
+
+      <button onclick="toggleMusic()">
+        <span id="musicIcon">▶</span>
+      </button>
+
+    </div>
+
+    <audio id="audio" src="audio/song1.mp3"></audio>
+
+  </div>
+
+</div>
+
+
+<!-- ================================
+     LETTER MODAL
+================================ -->
+
+<div class="modal" id="letterModal">
+
+  <div class="modal-content">
+
+    <button class="close" onclick="closeModal('letterModal')">
+      ×
+    </button>
+
+    <div class="letter-title">
+      Dear Keyta,
+    </div>
+
+    <div class="handwritten">
+
+      I don't really know when it happened.
+
+      <br><br>
+
+      Somewhere between all the random conversations,
+      the little moments,
+      the laughs,
+      and the ordinary days...
+
+      <br><br>
+
+      you slowly became someone
+      I wanted to have around.
+
+      <br><br>
+
+      And now,
+      having you in my life
+      feels like one of those things
+      I don't want to imagine without.
+
+      <br><br>
+
+      So I made this little place.
+
+      <br><br>
+
+      It's not perfect.
+
+      <br><br>
+
+      But I made it for you.
+
+    </div>
+
+    <div class="signature">
+      — Kato
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ================================
+     MEMORIES MODAL
+================================ -->
+
+<div class="modal" id="memoriesModal">
+
+  <div class="modal-content">
+
+    <button class="close" onclick="closeModal('memoriesModal')">
+      ×
+    </button>
+
+    <div class="letter-title">
+      Our little memories
+    </div>
+
+    <div class="memory-grid">
+
+      <div class="memory">
+
+        <div class="memory-img m1">
+          MEMORY 01
+        </div>
+
+        <p>
+          the day I realized
+          I really liked being around you.
+        </p>
+
+      </div>
+
+      <div class="memory">
+
+        <div class="memory-img m2">
+          MEMORY 02
+        </div>
+
+        <p>
+          one ordinary day
+          that somehow wasn't ordinary.
+        </p>
+
+      </div>
+
+      <div class="memory">
+
+        <div class="memory-img m3">
+          MEMORY 03
+        </div>
+
+        <p>
+          another moment
+          I secretly wanted to keep.
+        </p>
+
+      </div>
+
+      <div class="memory">
+
+        <div class="memory-img m4">
+          MEMORY 04
+        </div>
+
+        <p>
+          and hopefully,
+          just the beginning.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ================================
+     FLOWERS MODAL
+================================ -->
+
+<div class="modal" id="flowersModal">
+
+  <div class="modal-content secret">
+
+    <button class="close" onclick="closeModal('flowersModal')">
+      ×
+    </button>
+
+    <div class="secret-small">
+      for you
+    </div>
+
+    <h2>
+      A little bouquet.
+    </h2>
+
+    <div style="font-size:100px;margin:20px;">
+      💐
+    </div>
+
+    <p>
+      I couldn't send you a real one
+      through a website...
+      <br>
+      so this will have to do for now.
+    </p>
+
+  </div>
+
+</div>
+
+
+<!-- ================================
+     FLOATING MUSIC
+================================ -->
+
+<div class="floating-music" id="floatingMusic">
+
+  <div class="fm-row">
+
+    <div class="fm-cover">
+      KT
+    </div>
+
+    <div class="fm-info">
+
+      <small>
+        NOW PLAYING
+      </small>
+
+      <div>
+        Our Song
+      </div>
+
+    </div>
+
+    <button
+      class="fm-play"
+      onclick="toggleMusic()"
+    >
+      ▶
+    </button>
+
+  </div>
+
+</div>
+
+
+<script>
+
+/* =========================================
+   INTRO
+========================================= */
+
+function enterWorld(){
+
+  document
+    .getElementById("intro")
+    .classList.add("hide");
+
+  document
+    .getElementById("world")
+    .classList.add("visible");
+
+}
+
+
+/* =========================================
+   MODALS
+========================================= */
+
+function openModal(id){
+
+  document
+    .getElementById(id)
+    .classList.add("open");
+
+}
+
+function closeModal(id){
+
+  document
+    .getElementById(id)
+    .classList.remove("open");
+
+}
+
+function openMusic(){
+
+  openModal("musicModal");
+
+}
+
+function openLetter(){
+
+  openModal("letterModal");
+
+}
+
+function openMemories(){
+
+  openModal("memoriesModal");
+
+}
+
+function openFlowers(){
+
+  openModal("flowersModal");
+
+}
+
+
+/* close modal by clicking outside */
+
+document.querySelectorAll(".modal").forEach(modal => {
+
+  modal.addEventListener("click", e => {
+
+    if(e.target === modal){
+
+      modal.classList.remove("open");
+
+    }
+
+  });
+
+});
+
+
+/* =========================================
+   MUSIC
+========================================= */
+
+const audio =
+  document.getElementById("audio");
+
+const cassette =
+  document.getElementById("cassette");
+
+const musicIcon =
+  document.getElementById("musicIcon");
+
+const progressBar =
+  document.getElementById("progressBar");
+
+function toggleMusic(){
+
+  if(audio.paused){
+
+    /*
+      Put your real music here:
+
+      audio/song1.mp3
+    */
+
+    audio.play().catch(() => {
+
+      alert(
+        "Add your music file at audio/song1.mp3"
+      );
+
+    });
+
+    cassette.classList.add("playing");
+
+    musicIcon.textContent = "Ⅱ";
+
+    document
+      .getElementById("floatingMusic")
+      .classList.add("show");
+
+  }else{
+
+    audio.pause();
+
+    cassette.classList.remove("playing");
+
+    musicIcon.textContent = "▶";
+
+  }
+
+}
+
+
+audio.addEventListener("timeupdate", () => {
+
+  if(audio.duration){
+
+    const percent =
+      (audio.currentTime / audio.duration) * 100;
+
+    progressBar.style.width =
+      percent + "%";
+
+  }
+
+});
+
+
+audio.addEventListener("ended", () => {
+
+  cassette.classList.remove("playing");
+
+  musicIcon.textContent = "▶";
+
+});
+
+
+/* =========================================
+   SECRET EASTER EGG
+========================================= */
+
+let ktClicks = 0;
+
+document
+  .querySelector(".kt")
+  .addEventListener("click", () => {
+
+    ktClicks++;
+
+    if(ktClicks >= 5){
+
+      showSecret();
+
+      ktClicks = 0;
+
+    }
+
+  });
+
+
+function showSecret(){
+
+  const modal =
+    document.createElement("div");
+
+  modal.className = "modal open";
+
+  modal.innerHTML = `
+
+    <div class="modal-content secret">
+
+      <button class="close"
+        onclick="this.closest('.modal').remove()">
+        ×
+      </button>
+
+      <div class="secret-small">
+        you found something
+      </div>
+
+      <h2>
+        One last thing.
+      </h2>
+
+      <p>
+        Out of everything on this website...
+        <br><br>
+        this is probably the part
+        I wanted you to see the most.
+        <br><br>
+        I hope we get to fill this little universe
+        with a lot more memories together.
+        <br><br>
+        ❤️
+      </p>
+
+      <div class="signature">
+        — Kato
+      </div>
+
+    </div>
+
+  `;
+
+  document.body.appendChild(modal);
+
+}
+
+
+/* =========================================
+   PARALLAX
+========================================= */
+
+document.addEventListener("mousemove", e => {
+
+  const x =
+    (e.clientX / window.innerWidth - .5) * 2;
+
+  const y =
+    (e.clientY / window.innerHeight - .5) * 2;
+
+  document.querySelectorAll(".flower").forEach(
+    (flower,index) => {
+
+      const strength =
+        (index + 1) * 5;
+
+      flower.style.transform =
+        `translate(${x * strength}px,
+                   ${y * strength}px)`;
+
+    }
+  );
+
+});
+
+
+/* =========================================
+   ESC KEY
+========================================= */
+
+document.addEventListener("keydown", e => {
+
+  if(e.key === "Escape"){
+
+    document
+      .querySelectorAll(".modal")
+      .forEach(m => {
+
+        m.classList.remove("open");
+
+      });
+
+  }
+
+});
+
+</script>
+
+</body>
+</html>
